@@ -20,7 +20,18 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    
+    orderItems: {
+        type: [orderItemSchema],
+    },
+    adderss: {
+        type: String,
+        requried: true
+    },
+    status: {
+        type: String,
+        enum: ["PENDING", "CANCELLED", "DELIVERED"],
+        default: "PENDING"
+    }
 }, { timestamps: true })
 
 
